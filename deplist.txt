@@ -1,1 +1,1 @@
-pecl/oauth
+pecl/oauth-1.2
