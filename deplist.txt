@@ -1,1 +1,2 @@
+libpcre3-devel
 pecl/oauth-1.1.0
