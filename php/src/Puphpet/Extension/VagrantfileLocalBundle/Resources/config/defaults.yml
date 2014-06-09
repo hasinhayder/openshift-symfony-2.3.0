@@ -1,0 +1,28 @@
+vm:
+    chosen_provider: virtualbox
+    provider:
+        virtualbox: []
+        vmware: []
+        parallels: []
+    synced_folder:
+        -
+            source: ./
+            target: /var/www
+            id: vagrant-root
+            nfs: 'false'
+    network:
+        forwarded_port:
+            -
+                guest: ~
+                host: ~
+    provision:
+        puppet:
+            manifests_path: "puphpet/puppet"
+            manifest_file: "manifest.pp"
+            module_path: "puphpet/puppet/modules"
+            options:
+                - "--verbose"
+                - "--hiera_config /vagrant/puphpet/puppet/hiera.yaml"
+                - "--parser future"
+ssh:
+    forward_agent: true

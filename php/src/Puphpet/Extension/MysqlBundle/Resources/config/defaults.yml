@@ -1,0 +1,11 @@
+install: 1
+
+databases:
+    -
+        name: dbname
+        user: dbuser
+        password: 123
+        host: localhost
+        grant:
+            - ALL
+        sql_file: ~

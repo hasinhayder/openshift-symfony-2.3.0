@@ -1,0 +1,11 @@
+puphpet.extension.postgresql.homepage:
+    pattern:  /
+    defaults: { _controller: PuphpetExtensionPostgresqlBundle:Front:index }
+
+puphpet.extension.postgresql.add_database:
+    pattern:  /add-database
+    defaults: { _controller: PuphpetExtensionPostgresqlBundle:Front:addDatabase }
+
+puphpet.extension.postgresql.manifest:
+    pattern:  /manifest
+    defaults: { _controller: PuphpetExtensionPostgresqlBundle:Manifest:index }

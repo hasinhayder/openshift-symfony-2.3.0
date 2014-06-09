@@ -1,0 +1,16 @@
+<div class="tab-pane fade in" id="server">
+    <div class="page-header compact">
+        <h1><i class="fa fa-cogs"></i> Server Packages</h1>
+    </div>
+
+    {% set extension = extensionManager.getExtensionBySlug('mailcatcher') %}
+    {% set mailcatcher = extension.renderFront(extension.data)|raw %}
+
+    {% set extension = extensionManager.getExtensionBySlug('server') %}
+    {{ extension.renderFront(extension.data, mailcatcher)|raw }}
+
+    <ul class="pager">
+        <li class="previous"><a href="#deploy-target">← Deploy Target</a></li>
+        <li class="next"><a href="#firewall">Firewall Rules →</a></li>
+    </ul>
+</div>

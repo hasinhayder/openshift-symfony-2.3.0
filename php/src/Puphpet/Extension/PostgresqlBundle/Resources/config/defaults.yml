@@ -1,0 +1,11 @@
+install: 0
+
+settings:
+    version: "9.3"
+    encoding: UTF8
+
+databases: []
+
+adminer: 0
+
+

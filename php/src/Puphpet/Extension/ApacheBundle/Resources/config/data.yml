@@ -1,0 +1,16 @@
+install: 0
+
+settings:
+    user: 'www-data'
+    group: 'www-data'
+    default_vhost: true
+    manage_user: false
+    manage_group: false
+    sendfile: 0
+
+modules: []
+vhosts: []
+
+mod_pagespeed: 0
+mod_spdy: 0
+
