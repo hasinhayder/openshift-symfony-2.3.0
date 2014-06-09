@@ -1,171 +1,51 @@
-Symfony Standard Edition
-========================
+# PuPHPet #
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new applications.
+[PuPHPet](https://puphpet.com) - A simple GUI to set up virtual machines for PHP development
 
-This document contains information on how to download, install, and start
-using Symfony. For a more detailed explanation, see the [Installation][1]
-chapter of the Symfony Documentation.
+[![Build Status](https://travis-ci.org/puphpet/puphpet.png)](https://travis-ci.org/puphpet/puphpet)
 
-1) Installing the Standard Edition
-----------------------------------
+## What? ##
 
-When it comes to installing the Symfony Standard Edition, you have the
-following options.
+[PuPHPet](https://puphpet.com) is a web application that allows you to easily and quickly generate custom
+[Vagrant](http://vagrantup.com) and [Puppet](https://puppetlabs.com) controlled virtual machines.
 
-### Use Composer (*recommended*)
+If you're unfamiliar with either Vagrant or Puppet, I wrote a blog titled
+["Make $ vagrant up yours"](https://jtreminio.com/2013/06/make_vagrant_up_yours/).
 
-As Symfony uses [Composer][2] to manage its dependencies, the recommended way
-to create a new project is to use it.
+## How? ##
 
-If you don't have Composer yet, download it following the instructions on
-http://getcomposer.org/ or just run the following command:
+PHP drives the frontend, using the ["Symfony2 framework"](http://symfony.com/). Choices are set into a yaml file that
+configures the main Puppet manifest with your custom settings.
 
-    curl -s http://getcomposer.org/installer | php
+## Why? ##
 
-Then, use the `create-project` command to generate a new Symfony application:
+I started using Vagrant and Puppet when I wanted a simple PHP 5.4 VM to do my development on. I could find nothing
+pre-made that didn't come with a bunch of cruft I did not want so I decided to create a tool that would ease this
+task for other developers who may not want to learn Puppet's DSL to get a VM up and running so they can develop
+in their language of choice.
 
-    php composer.phar create-project symfony/framework-standard-edition path/to/install
+## Who? ##
 
-Composer will install Symfony and all its dependencies under the
-`path/to/install` directory.
+Originally developed by [Juan Treminio](https://jtreminio.com), PuPHPet has now had 29 contributors (as of 12/15/13),
+with the talented [Frank Stelzer](https://twitter.com/frastel) heavily contributing. Also making significant
+contributions is [Michaël Perrin](http://www.michaelperrin.fr/).
 
-### Download an Archive File
+Sometime in mid August 2013, work on v2 was begun to attempt to solve problems encountered with v1: difficult to
+add new features, too much PHP logic controlling Puppet logic, difficult to change an existing manifest.
 
-To quickly test Symfony, you can also download an [archive][3] of the Standard
-Edition and unpack it somewhere under your web server root directory.
+## Goals ##
 
-If you downloaded an archive "without vendors", you also need to install all
-the necessary dependencies. Download composer (see above) and run the
-following command:
+The main goal of PuPHPet is to eventually replace tools such as XAMPP, WAMPP, MAMPP and other all-in-one servers that
+create development environments on your main operating system.
 
-    php composer.phar install
+Eventually PuPHPet will be good enough to help create production-ready servers!
 
-2) Checking your System Configuration
--------------------------------------
+## Requirements ##
 
-Before starting coding, make sure that your local system is properly
-configured for Symfony.
+To run PuPHPet-generated manifests, you'll need to install [Vagrant](http://downloads.vagrantup.com/) version 1.2.0 or
+greater. Vagrant will run on Windows, OS X and Linux.
 
-Execute the `check.php` script from the command line:
+## License ##
 
-    php app/check.php
-
-The script returns a status code of `0` if all mandatory requirements are met,
-`1` otherwise.
-
-Access the `config.php` script from a browser:
-
-    http://localhost/path/to/symfony/app/web/config.php
-
-If you get any warnings or recommendations, fix them before moving on.
-
-3) Browsing the Demo Application
---------------------------------
-
-Congratulations! You're now ready to use Symfony.
-
-From the `config.php` page, click the "Bypass configuration and go to the
-Welcome page" link to load up your first Symfony page.
-
-You can also use a web-based configurator by clicking on the "Configure your
-Symfony Application online" link of the `config.php` page.
-
-To see a real-live Symfony page in action, access the following page:
-
-    web/app_dev.php/demo/hello/Fabien
-
-4) Getting started with Symfony
--------------------------------
-
-This distribution is meant to be the starting point for your Symfony
-applications, but it also contains some sample code that you can learn from
-and play with.
-
-A great way to start learning Symfony is via the [Quick Tour][4], which will
-take you through all the basic features of Symfony2.
-
-Once you're feeling good, you can move onto reading the official
-[Symfony2 book][5].
-
-A default bundle, `AcmeDemoBundle`, shows you Symfony2 in action. After
-playing with it, you can remove it by following these steps:
-
-  * delete the `src/Acme` directory;
-
-  * remove the routing entry referencing AcmeDemoBundle in `app/config/routing_dev.yml`;
-
-  * remove the AcmeDemoBundle from the registered bundles in `app/AppKernel.php`;
-
-  * remove the `web/bundles/acmedemo` directory;
-
-  * remove the `security.providers`, `security.firewalls.login` and
-    `security.firewalls.secured_area` entries in the `security.yml` file or
-    tweak the security configuration to fit your needs.
-
-What's inside?
----------------
-
-The Symfony Standard Edition is configured with the following defaults:
-
-  * Twig is the only configured template engine;
-
-  * Doctrine ORM/DBAL is configured;
-
-  * Swiftmailer is configured;
-
-  * Annotations for everything are enabled.
-
-It comes pre-configured with the following bundles:
-
-  * **FrameworkBundle** - The core Symfony framework bundle
-
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
-
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
-
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * [**AsseticBundle**][12] - Adds support for Assetic, an asset processing
-    library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **AcmeDemoBundle** (in dev/test env) - A demo bundle with some example
-    code
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  http://symfony.com/doc/2.3/book/installation.html
-[2]:  http://getcomposer.org/
-[3]:  http://symfony.com/download
-[4]:  http://symfony.com/doc/2.3/quick_tour/the_big_picture.html
-[5]:  http://symfony.com/doc/2.3/index.html
-[6]:  http://symfony.com/doc/2.3/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  http://symfony.com/doc/2.3/book/doctrine.html
-[8]:  http://symfony.com/doc/2.3/book/templating.html
-[9]:  http://symfony.com/doc/2.3/book/security.html
-[10]: http://symfony.com/doc/2.3/cookbook/email.html
-[11]: http://symfony.com/doc/2.3/cookbook/logging/monolog.html
-[12]: http://symfony.com/doc/2.3/cookbook/assetic/asset_management.html
-[13]: http://symfony.com/doc/2.3/bundles/SensioGeneratorBundle/index.html
+PuPHPet is licensed under the [MIT license](http://opensource.org/licenses/mit-license.php) all third-party Puppet
+Modules are licensed under [Apache License v2.0](http://www.apache.org/licenses/LICENSE-2.0).

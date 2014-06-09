@@ -1,0 +1,17 @@
+parameters:
+
+services:
+    puphpet.extension.server.configure:
+        class: Puphpet\Extension\ServerBundle\Configure
+        arguments:
+            - "@service_container"
+
+    puphpet.extension.server.front_controller:
+        class: Puphpet\Extension\ServerBundle\Controller\FrontController
+        calls:
+            - [ setContainer, [@service_container] ]
+
+    puphpet.extension.server.manifest_controller:
+        class: Puphpet\Extension\ServerBundle\Controller\ManifestController
+        calls:
+            - [ setContainer, [@service_container] ]

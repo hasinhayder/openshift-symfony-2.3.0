@@ -1,0 +1,15 @@
+install: 0
+
+version: 55
+
+composer: 1
+composer_home: ~
+
+modules:
+    php: []
+    pear: []
+    pecl: []
+
+ini: []
+
+timezone: ~

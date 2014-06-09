@@ -1,0 +1,33 @@
+install: 1
+
+settings:
+    sendfile: 0
+
+modules:
+    - rewrite
+    - php
+
+vhosts:
+    -
+        servername: awesome.dev
+        serveraliases:
+            - www.awesome.dev
+        docroot: /var/www/awesome
+        port: 80
+        setenv: # environment variables
+            - APP_ENV dev
+        override:
+            - All
+        options:
+            - Indexes
+            - FollowSymLinks
+            - MultiViews
+        custom_fragment: ~
+        ssl: 0
+        ssl_cert: ~
+        ssl_key: ~
+        ssl_chain: ~
+        ssl_certs_dir: ~
+
+mod_pagespeed: 0
+mod_spdy: 0
